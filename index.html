@@ -14,7 +14,7 @@
             .then(data => {
                 // Extract the time and players_online values from the JSON data
                 const timeLabels = data.map(entry => entry.time);
-                const playerCounts = data.map(entry => entry.players_online);
+                const playerCounts = data.map(entry => parseInt(entry.players_online));
 
                 // Create a new Chart.js line chart
                 const ctx = document.getElementById('playerChart').getContext('2d');
