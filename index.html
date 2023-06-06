@@ -3,6 +3,8 @@
 <head>
     <title>Player Count Graph</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
 </head>
 <body>
     <canvas id="playerChart" width="400" height="200"></canvas>
@@ -13,7 +15,7 @@
             .then(response => response.json())
             .then(data => {
                 // Extract the time and players_online values from the JSON data
-                const timeLabels = data.map(entry => new Date(entry.time));
+                const timeLabels = data.map(entry => moment(entry.time));
                 const playerCounts = data.map(entry => parseInt(entry.players_online));
 
                 // Create a new Chart.js line chart
